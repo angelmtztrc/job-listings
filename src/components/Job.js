@@ -66,7 +66,7 @@ const Job = ({ job }) => {
         {/* end - information of the job */}
         <ul className="flex flex-wrap mt-4 lg:mt-0">
           {categories.map((category, index) => (
-            <li key={index} className="mr:1 lg:mr-2 mb-1 lg:mb-0">
+            <li key={index} className="mr-1 lg:mr-2 mb-1 lg:mb-0">
               <button
                 onClick={() => handleAddFilter(category)}
                 className="text-xs lg:text-base px-4 py-2 focus:outline-none bg-cyan-light-gryish hover:bg-cyan-primary text-cyan-primary hover:text-cyan-light-gryish font-semibold rounded-md transition-colors ease-in-out duration-500"
