@@ -7,3 +7,21 @@
 body {
   font-family: 'Spartan', sans-serif;
 }
+
+#header {
+  background-image: url(images/bg-header-desktop.svg);
+}
+
+@media (max-width: 1024px) {
+  #header {
+    background-image: url(images/bg-header-mobile.svg);
+  }
+}
+
+#extra-info > :not(:first-child)::before {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  @apply rounded-full bg-cyan-dark-grayish align-middle mx-4;
+}
