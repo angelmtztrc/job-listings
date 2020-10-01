@@ -35,32 +35,29 @@ const Job = ({ job }) => {
             className="h-12 w-12 lg:h-24 lg:w-24 rounded-full mr-5 bg-cover bg-center absolute lg:relative top-0 left-0 -mt-10 lg:mt-0"
           ></div>
           <div className="pb-4 lg:pb-0 mt-5 lg:mt-0">
-            <section className="flex items-center mb-3">
+            <div className="flex items-center mb-3">
               <p className="text-xs lg:text-base text-cyan-primary font-semibold mr-2 lg:mr-5">
                 {job.company}
               </p>
               {job.new ? (
-                <span className="mr-1 lg:mr-3 px-2 pt-2 pb-1 lg:px-3 lg:pt-3 lg:pb-2 bg-cyan-primary leading-none rounded-full text-white font-semibold">
+                <div className="mr-1 lg:mr-3 px-2 pt-2 pb-1 lg:px-3 lg:pt-3 lg:pb-2 bg-cyan-primary leading-none rounded-full text-white font-semibold">
                   <p className="text-xs lg:text-sm">NEW!</p>
-                </span>
+                </div>
               ) : null}
               {job.featured ? (
-                <span className="px-2 pt-2 pb-1 lg:px-3 lg:pt-3 lg:pb-2 bg-cyan-very-dark-grayish leading-none rounded-full text-white font-semibold">
+                <div className="px-2 pt-2 pb-1 lg:px-3 lg:pt-3 lg:pb-2 bg-cyan-very-dark-grayish leading-none rounded-full text-white font-semibold">
                   <p className="text-xs lg:text-sm">FEATURED</p>
-                </span>
+                </div>
               ) : null}
-            </section>
+            </div>
             <h2 className="text-base lg:text-xl text-cyan-very-dark-grayish hover:text-cyan-primary font-bold cursor-pointer transition-colors ease-out duration-300">
               {job.position}
             </h2>
-            <section
-              id="extra-info"
-              className="text-cyan-dark-grayish mt-3 text-xs lg:text-base"
-            >
+            <div className="text-cyan-dark-grayish mt-3 text-xs lg:text-base extra-info">
               <span>{job.postedAt}</span>
               <span>{job.contract}</span>
               <span>{job.location}</span>
-            </section>
+            </div>
           </div>
         </div>
         {/* end - information of the job */}

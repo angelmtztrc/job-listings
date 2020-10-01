@@ -18,7 +18,7 @@ body {
   }
 }
 
-#extra-info > :not(:first-child)::before {
+.extra-info > :not(:first-child)::before {
   content: '';
   display: inline-block;
   width: 0.15rem;
@@ -27,7 +27,7 @@ body {
 }
 
 @media (min-width: 1024px) {
-  #extra-info > :not(:first-child)::before {
+  .extra-info > :not(:first-child)::before {
     width: 0.4rem;
     height: 0.4rem;
     @apply mx-4;
