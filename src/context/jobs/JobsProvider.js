@@ -7,7 +7,7 @@ import data from '../../api/data.json';
 import JobsReducer from './JobsReducer';
 
 // Constants
-import { ADD_FILTER } from '../../constants';
+import { ADD_FILTER, REMOVE_FILTER } from '../../constants';
 
 // Context
 export const JobsContext = createContext();
@@ -28,6 +28,14 @@ export const JobsProvider = props => {
     });
   };
 
+  // Remove a filter from the array
+  const fnRemoveFilter = value => {
+    dispatch({
+      type: REMOVE_FILTER,
+      payload: value
+    });
+  };
+
   return (
     <JobsContext.Provider
       value={{
@@ -35,7 +43,8 @@ export const JobsProvider = props => {
         jobs: state.jobs,
         filters: state.filters,
         // Functions
-        fnAddFilter
+        fnAddFilter,
+        fnRemoveFilter
       }}
     >
       {props.children}

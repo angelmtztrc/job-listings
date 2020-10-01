@@ -6,7 +6,11 @@ import { JobsContext } from '../context/jobs/JobsProvider';
 const Header = () => {
   // Access to the context values
   const JobsState = useContext(JobsContext);
-  const { filters } = JobsState;
+  const { filters, fnRemoveFilter } = JobsState;
+
+  const handleRemoveFilter = value => {
+    fnRemoveFilter(value);
+  };
 
   return (
     <header
@@ -18,12 +22,18 @@ const Header = () => {
           {filters.length >= 1 ? (
             <div className="bg-white px-8 py-4 shadow-md rounded-md flex justify-between items-center">
               <ul className="flex">
-                {filters.map(filter => (
-                  <li className="bg-cyan-light-gryish p-3 pr-12 rounded-md relative mr-4">
+                {filters.map((filter, index) => (
+                  <li
+                    key={index}
+                    className="bg-cyan-light-gryish p-3 pr-12 rounded-md relative mr-4"
+                  >
                     <p className="text-cyan-primary leading-none font-semibold mr-2">
                       {filter}
                     </p>
-                    <button className="absolute top-0 right-0 bg-cyan-primary hover:bg-cyan-very-dark-grayish h-full w-10 flex justify-center items-center rounded-r-md transition-colors ease-out duration-300">
+                    <button
+                      onClick={() => handleRemoveFilter(filter)}
+                      className="absolute top-0 right-0 bg-cyan-primary hover:bg-cyan-very-dark-grayish h-full w-10 flex justify-center items-center rounded-r-md transition-colors ease-out duration-300"
+                    >
                       <svg
                         className="w-5 h-5 text-white"
                         fill="none"
