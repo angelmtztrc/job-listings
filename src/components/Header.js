@@ -6,10 +6,16 @@ import { JobsContext } from '../context/jobs/JobsProvider';
 const Header = () => {
   // Access to the context values
   const JobsState = useContext(JobsContext);
-  const { filters, fnRemoveFilter } = JobsState;
+  const { filters, fnRemoveFilter, fnClearFilter } = JobsState;
 
+  // Remove a filter
   const handleRemoveFilter = value => {
     fnRemoveFilter(value);
+  };
+
+  // Clear filters
+  const handleClearFilters = () => {
+    fnClearFilter();
   };
 
   return (
@@ -52,7 +58,10 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-              <button className="text-cyan-primary font-semibold hover:underline">
+              <button
+                onClick={handleClearFilters}
+                className="text-cyan-primary font-semibold hover:underline"
+              >
                 Clear
               </button>
             </div>

@@ -1,5 +1,5 @@
 // Constants
-import { ADD_FILTER, REMOVE_FILTER } from '../../constants';
+import { ADD_FILTER, CLEAR_FILTER, REMOVE_FILTER } from '../../constants';
 
 export default (state, action) => {
   switch (action.type) {
@@ -12,6 +12,11 @@ export default (state, action) => {
       return {
         ...state,
         filters: state.filters.filter(filter => filter !== action.payload)
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filters: []
       };
     default:
       return state;
