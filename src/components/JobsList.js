@@ -8,13 +8,24 @@ import Job from './Job';
 
 const JobsList = () => {
   const JobsState = useContext(JobsContext);
-  const { jobs } = JobsState;
+  const { jobs, filters } = JobsState;
 
   return (
     <ul className="flex flex-col container mx-auto">
-      {jobs.map(job => (
-        <Job key={job.id} job={job} />
-      ))}
+      {jobs
+        .filter(job => {
+          let categories = [
+            job.role,
+            job.level,
+            ...job.tools,
+            ...job.languages
+          ];
+
+          return filters.every(filter => categories.includes(filter));
+        })
+        .map(job => (
+          <Job key={job.id} job={job} />
+        ))}
     </ul>
   );
 };
