@@ -21,7 +21,15 @@ body {
 #extra-info > :not(:first-child)::before {
   content: '';
   display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  @apply rounded-full bg-cyan-dark-grayish align-middle mx-4;
+  width: 0.15rem;
+  height: 0.15rem;
+  @apply rounded-full bg-cyan-dark-grayish align-middle mx-2;
+}
+
+@media (min-width: 1024px) {
+  #extra-info > :not(:first-child)::before {
+    width: 0.4rem;
+    height: 0.4rem;
+    @apply mx-4;
+  }
 }

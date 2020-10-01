@@ -12,7 +12,7 @@ const JobsList = () => {
   const { jobs, filters } = JobsState;
 
   return (
-    <ul className="flex flex-col container mx-auto">
+    <ul className="flex flex-col container mx-auto px-4 lg:px-0">
       {jobs
         .filter(job => {
           let categories = [
