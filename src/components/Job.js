@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
+// Context
+import { JobsContext } from '../context/jobs/JobsProvider';
+
 const Job = ({ job }) => {
+  const JobsState = useContext(JobsContext);
+  const { fnAddFilter } = JobsState;
+
+  // Object destructuring
   const { role, level, languages, tools, logo } = job;
 
   // Create an array with all categories
   const categories = [role, level, ...tools, ...languages];
+
+  // Add filter
+  const handleAddFilter = value => {
+    fnAddFilter(value);
+  };
 
   return (
     <li className="border-l-4 border-cyan-primary p-8 shadow-md rounded-md mb-5">
@@ -47,7 +59,10 @@ const Job = ({ job }) => {
         <ul className="flex">
           {categories.map((category, index) => (
             <li key={index} className="mr-2">
-              <button className="px-4 py-2 focus:outline-none bg-cyan-light-gryish hover:bg-cyan-primary text-cyan-primary hover:text-cyan-light-gryish font-semibold rounded-md transition-colors ease-in-out duration-500">
+              <button
+                onClick={() => handleAddFilter(category)}
+                className="px-4 py-2 focus:outline-none bg-cyan-light-gryish hover:bg-cyan-primary text-cyan-primary hover:text-cyan-light-gryish font-semibold rounded-md transition-colors ease-in-out duration-500"
+              >
                 {category}
               </button>
             </li>
