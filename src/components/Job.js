@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { JobsContext } from '../context/jobs/JobsProvider';
 
 const Job = ({ job }) => {
+  // Access to the context
   const JobsState = useContext(JobsContext);
   const { fnAddFilter } = JobsState;
 

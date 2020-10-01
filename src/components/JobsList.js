@@ -7,6 +7,7 @@ import { JobsContext } from '../context/jobs/JobsProvider';
 import Job from './Job';
 
 const JobsList = () => {
+  // Access to the context
   const JobsState = useContext(JobsContext);
   const { jobs, filters } = JobsState;
 
